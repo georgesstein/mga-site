@@ -1,4 +1,5 @@
 <script>
+
 import {
   lerp,
   BufferGeometry,
@@ -171,21 +172,24 @@ export default {
         <ZoomBlurPass :strength="zoomStrength" />
       </EffectComposer>
     </Renderer>
+    
     <div style="width: 400px; height: 200px; background-color: white; margin: 100px; z-index: 2">
-      <a
+      <button
         href="#"
         @click="updateColors"
         @mouseenter="targetTimeCoef = 60"
         @mouseleave="targetTimeCoef = 1"
       >
         Random Colors
-      </a>
+      </button>
     </div>
   </div>
   <div style="width: 100vw; height: 200px; background-color: red; z-index: 2; position: relative"></div>
 </template>
 
 <style lang="scss">
+@import '@/assets/global.scss';
+
 .container {
   background-attachment: fixed;
   box-sizing: border-box;
@@ -203,7 +207,7 @@ export default {
     box-sizing: border-box;
   }
 
-  a {
+  button {
     font-family: "Montserrat", sans-serif;
     font-size: 30px;
     width: 300px;
@@ -212,7 +216,7 @@ export default {
     text-align: center;
     text-decoration: none;
     background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
+    color: $BASE_COLOR;
     border: 1px solid #fff;
     border-radius: 50px;
     z-index: 10;
