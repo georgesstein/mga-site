@@ -1,0 +1,52 @@
+@font-face {
+  font-family: "Inter";
+  src: local("Roboto"),
+    url('@/assets/styles/fonts/Inter-Regular.ttf') format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: local("Roboto"),
+    url('@/assets/styles/fonts/Inter-Bold.ttf') format("truetype");
+  font-style: normal;
+  font-weight: 700;
+}
+
+@mixin small-light {
+  font-family: "Inter";
+  font-weight: 300;
+  font-size: 16px;
+}
+
+@mixin small-bold {
+  font-family: "Inter";
+  font-weight: bold;
+  font-size: 16px;
+}
+
+@mixin medium-light {
+  font-family: "Inter";
+  font-weight: 300;
+  font-size: 24px;
+}
+
+@mixin medium-bold {
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 24px;
+}
+
+@mixin large {
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 64px;
+}
+
+@mixin greetings-title {
+  font-family: "Inter";
+  font-weight: 800;
+  font-size: 84px;
+  line-height: 84px;
+}
