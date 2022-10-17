@@ -1,0 +1,39 @@
+<script>
+export default {};
+</script>
+
+<template>
+  <div class="greetings-container">
+    <h1>RISE YOUR BUSINESS</h1>
+    <p>
+      DISCLOSE UNPRECEDENTED GROWTH WITH SOCIAL, PPC, NATIVE, UNIQUE STRATEGY
+      CAMPAIGNS AND GET EXPLICIT EFFECT. PARTNERS ALL AROUND THE WORLD HAVE
+      BUILT THEIR SUCCESSFUL BUSINESSES AND CAREERS WITH us.
+    </p>
+    <slot></slot>
+  </div>
+</template>
+
+<style lang="scss">
+@import "@/assets/styles/global";
+
+.greetings-container {
+  width: 450px;
+  margin: 200px;
+  z-index: 2;
+  color: $base;
+
+  h1 {
+    @include greetings-title;
+    margin-bottom: 10px;
+  }
+
+  p {
+    @include small-bold;
+    width: 400px;
+    color: $second;
+    margin-bottom: 40px;
+    text-transform: lowercase;
+  }
+}
+</style>

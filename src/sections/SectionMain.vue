@@ -16,8 +16,9 @@ import {
 
 import { Clock, Color, MathUtils, Vector3 } from "three";
 
-import { niceColors } from "../constants.js";
-import TheButton from "./TheButton.vue";
+import { niceColors } from "@/assets/styles/nice-colors.js";
+import MainButton from "@/components/MainButton.vue";
+import TheGreetings from "@/components/TheGreetings.vue";
 
 const { randFloat: rnd, randInt, randFloatSpread: rndFS } = MathUtils;
 
@@ -60,7 +61,8 @@ export default {
     Texture,
     UnrealBloomPass,
     ZoomBlurPass,
-    TheButton,
+    MainButton,
+    TheGreetings,
   },
   setup() {
     const POINTS_COUNT = 30000;
@@ -146,7 +148,7 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <div class="section-main__container">
     <Renderer ref="renderer" pointer resize="window">
       <Camera :position="{ z: 0 }" :fov="50" />
       <Scene>
@@ -175,15 +177,8 @@ export default {
       </EffectComposer>
     </Renderer>
 
-    <div
-      style="
-        background-color: white;
-
-        margin: 200px;
-        z-index: 2;
-      "
-    >
-      <TheButton
+    <the-greetings>
+      <main-button
         href="#"
         @mouseenter="targetTimeCoef = 60"
         @mouseleave="targetTimeCoef = 1"
@@ -191,25 +186,15 @@ export default {
         :width="300"
       >
         <img src="@/assets/icons/button-rocket.svg" />
-      </TheButton>
-    </div>
+      </main-button>
+    </the-greetings>
   </div>
-
-  <!-- <div
-    style="
-      width: 100vw;
-      height: 200px;
-      background-color: red;
-      z-index: 2;
-      position: relative;
-    "
-  ></div> -->
 </template>
 
 <style lang="scss">
 @import "@/assets/styles/global";
 
-.container {
+.section-main__container {
   background-attachment: fixed;
   box-sizing: border-box;
   width: 100vw;

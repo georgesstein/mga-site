@@ -1,17 +1,15 @@
 <script>
-// import SubSurface from "./components/SubSurface.vue";
-import Starfield from "./components/Starfield.vue";
+import SectionMain from "@/sections/SectionMain.vue";
 
 export default {
   components: {
-    Starfield,
-    // SubSurface,
+    SectionMain,
   },
 };
 </script>
 
 <template>
-  <Starfield />
+  <section-main />
 </template>
 
 <style>
