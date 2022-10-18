@@ -30,9 +30,7 @@ export default {
   </button>
 </template>
 
-<style lang="scss">
-@import "@/assets/styles/global";
-
+<style lang="scss" scoped>
 button {
   @include small-bold;
 
@@ -41,16 +39,13 @@ button {
   padding: 0px 60px;
   justify-content: center;
   align-items: center;
+  column-gap: 8px;
   text-decoration: none;
   background-color: $highlight;
   color: $base;
   border-radius: 17px;
   border: none;
   z-index: 10;
-
-  img {
-    height: 20px;
-    margin-right: 8px;
-  }
+  cursor: pointer;
 }
 </style>

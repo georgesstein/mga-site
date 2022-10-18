@@ -17,7 +17,9 @@ import {
 import { Clock, Color, MathUtils, Vector3 } from "three";
 
 import { niceColors } from "@/assets/styles/nice-colors.js";
-import MainButton from "@/components/MainButton.vue";
+
+import TheHeader from "@/components/TheHeader.vue";
+import ContactButton from "@/components/ContactButton.vue";
 import TheGreetings from "@/components/TheGreetings.vue";
 
 const { randFloat: rnd, randInt, randFloatSpread: rndFS } = MathUtils;
@@ -61,7 +63,8 @@ export default {
     Texture,
     UnrealBloomPass,
     ZoomBlurPass,
-    MainButton,
+    TheHeader,
+    ContactButton,
     TheGreetings,
   },
   setup() {
@@ -177,8 +180,10 @@ export default {
       </EffectComposer>
     </Renderer>
 
-    <the-greetings>
-      <main-button
+    <TheHeader />
+
+    <TheGreetings>
+      <ContactButton
         href="#"
         @mouseenter="targetTimeCoef = 60"
         @mouseleave="targetTimeCoef = 1"
@@ -186,8 +191,8 @@ export default {
         :width="300"
       >
         <img src="@/assets/icons/button-rocket.svg" />
-      </main-button>
-    </the-greetings>
+      </ContactButton>
+    </TheGreetings>
   </div>
 </template>
 
@@ -197,8 +202,8 @@ export default {
 .section-main__container {
   background-attachment: fixed;
   box-sizing: border-box;
-  width: 100vw;
   height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -208,7 +213,6 @@ export default {
     position: fixed;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
   }
 }
 </style>

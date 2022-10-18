@@ -206,9 +206,7 @@ export default {
   ></div> -->
 </template>
 
-<style lang="scss">
-@import "@/assets/styles/global";
-
+<style lang="scss" scoped>
 .container {
   background-attachment: fixed;
   box-sizing: border-box;

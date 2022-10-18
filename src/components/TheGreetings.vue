@@ -14,9 +14,7 @@ export default {};
   </div>
 </template>
 
-<style lang="scss">
-@import "@/assets/styles/global";
-
+<style lang="scss" scoped>
 .greetings-container {
   width: 450px;
   margin: 200px;
