@@ -151,7 +151,7 @@ export default {
 </script>
 
 <template>
-  <div class="section-main__container">
+  <div class="section-main">
     <Renderer ref="renderer" pointer resize="window">
       <Camera :position="{ z: 0 }" :fov="50" />
       <Scene>
@@ -199,7 +199,7 @@ export default {
 <style lang="scss">
 @import "@/assets/styles/global";
 
-.section-main__container {
+.section-main {
   background-attachment: fixed;
   box-sizing: border-box;
   height: 100vh;
