@@ -1,17 +1,18 @@
 <script>
 import SectionMain from "@/sections/SectionMain.vue";
-import PrivacyPolicyPage from "@/PrivacyPolicyPage.vue";
+import SectionAdvertisers from "@/sections/SectionAdvertisers.vue";
 
 export default {
   components: {
     SectionMain,
-    PrivacyPolicyPage,
+    SectionAdvertisers
   },
 };
 </script>
 
 <template>
-  <SectionMain id="main" />
+  <SectionMain />
+  <SectionAdvertisers />
 </template>
 
 <style lang="scss">

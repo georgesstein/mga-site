@@ -1,15 +1,15 @@
 <script>
-import SectionMain from "@/sections/SectionMain.vue";
+import MainPage from "@/pages/MainPage.vue";
 
 export default {
   components: {
-    SectionMain,
+    MainPage,
   },
 };
 </script>
 
 <template>
-  <section-main />
+  <MainPage />
 </template>
 
 <style>

@@ -55,6 +55,7 @@ export default {
     @include small-bold;
 
     height: 100%;
+    width: max-content;
     display: flex;
     align-items: center;
     color: $second;
