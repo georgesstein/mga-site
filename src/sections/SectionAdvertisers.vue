@@ -1,10 +1,10 @@
 <script>
-import SectionHeading from "@/components/SectionHeading.vue";
+import HeadingBlock from "@/components/HeadingBlock.vue";
 import AdvertisersTileItem from "@/components/AdvertisersTileItem.vue";
 
 export default {
   components: {
-    SectionHeading,
+    HeadingBlock,
     AdvertisersTileItem,
   },
 };
@@ -12,7 +12,7 @@ export default {
 
 <template>
   <div class="advertisers">
-    <SectionHeading beforeHeading="for" title="ADVERTISERS" />
+    <HeadingBlock beforeHeading="for" title="ADVERTISERS" />
 
     <div class="tiles">
       <AdvertisersTileItem

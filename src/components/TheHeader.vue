@@ -24,7 +24,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   padding: 0px 150px;
