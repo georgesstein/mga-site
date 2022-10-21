@@ -2,9 +2,9 @@
 import { ref, watchEffect } from "vue";
 
 const props = defineProps({
-  backgroundImage: { type: String },
-  logoImage: { type: String },
-  title: { type: String },
+  backgroundImage: { type: String, required: true },
+  logoImage: { type: String, required: true },
+  title: { type: String, required: true },
 });
 
 const icon = ref();
