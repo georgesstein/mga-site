@@ -1,11 +1,15 @@
 <script>
 import SectionMain from "@/sections/SectionMain.vue";
 import SectionAdvertisers from "@/sections/SectionAdvertisers.vue";
+import SectionPublishers from "@/sections/SectionPublishers.vue"
+import SectionAboutUs from "@/sections/SectionAboutUs.vue"
 
 export default {
   components: {
     SectionMain,
-    SectionAdvertisers
+    SectionAdvertisers,
+    SectionPublishers,
+    SectionAboutUs
   },
 };
 </script>
@@ -13,6 +17,8 @@ export default {
 <template>
   <SectionMain />
   <SectionAdvertisers />
+  <SectionPublishers />
+  <SectionAboutUs />
 </template>
 
 <style lang="scss">
