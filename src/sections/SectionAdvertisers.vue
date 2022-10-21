@@ -2,7 +2,15 @@
 import HeadingBlock from "@/components/HeadingBlock.vue";
 import AdvertisersTileItem from "@/components/AdvertisersTileItem.vue";
 
+import { ADVERTISERS } from "@/assets/content.js";
+
 export default {
+  data() {
+    return {
+      advertisers: ADVERTISERS,
+    };
+  },
+
   components: {
     HeadingBlock,
     AdvertisersTileItem,
@@ -16,51 +24,17 @@ export default {
 
     <div class="tiles">
       <AdvertisersTileItem
-        title="Transparent Relations."
-        description="Pay only for real performance according to your goals."
-      >
-        <img src="../assets/tiles/one.svg" />
-      </AdvertisersTileItem>
-
-      <AdvertisersTileItem
-        title="Large-Scale Coverage."
-        description="Get worldwide cover. Customizable landing pages and campaigns in 135+ Countries."
-      >
-        <img src="../assets/tiles/three.svg" />
-      </AdvertisersTileItem>
-
-      <AdvertisersTileItem
-        title="Multiple Traffic Sources."
-        description="We provide multiple traffic sources: social, ppc, native, app traffic."
-      >
-        <img src="../assets/tiles/two.svg" />
-      </AdvertisersTileItem>
-
-      <AdvertisersTileItem
-        title="Easy to Track."
-        description="Open API and postback integration to help you track your campaigns."
-      >
-        <img src="../assets/tiles/four.svg" />
-      </AdvertisersTileItem>
-
-      <AdvertisersTileItem
-        title="Anti-Fraud System."
-        description="All our publishers have to pass anti-fraud screening process before they can promote offers."
-      >
-        <img src="../assets/tiles/six.svg" />
-      </AdvertisersTileItem>
-
-      <AdvertisersTileItem
-        title="Strong Team."
-        description="Work with strong team. Our experts with rich experience will support you 24/7 whenever you need."
-      >
-        <img src="../assets/tiles/five.svg" />
-      </AdvertisersTileItem>
+        v-for="item in advertisers"
+        :key="item.title"
+        :title="item.title"
+        :description="item.description"
+        :icon="item.icon"
+      />
     </div>
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .advertisers {
   width: 100%;
   display: flex;
@@ -77,7 +51,6 @@ export default {
     display: grid;
     width: 100%;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
     gap: 5px;
   }
 }

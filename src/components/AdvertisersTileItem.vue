@@ -1,21 +1,24 @@
-<script>
-export default {
-  props: {
-    title: {
-      type: String,
-      required: true,
-    },
-    description: {
-      type: String,
-      required: true,
-    },
-  },
-};
+<script setup>
+import { ref, watchEffect } from "vue";
+
+const props = defineProps({
+  title: { type: String, required: true },
+  description: { type: String, required: true },
+  icon: { type: String, required: true },
+});
+
+const iconImage = ref();
+
+watchEffect(async () => {
+  iconImage.value = (
+    await import(/* @vite-ignore */ `../assets/tiles/${props.icon}.svg`)
+  ).default;
+});
 </script>
 
 <template>
   <div class="pile">
-    <slot></slot>
+    <img :src="iconImage" />
     <h3>{{ title }}</h3>
     <p>{{ description }}</p>
   </div>
