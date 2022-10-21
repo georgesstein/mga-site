@@ -1,7 +1,7 @@
 <script>
-import SvgJobs from "@/components/SvgJobs.vue";
-import SvgPrivacy from "@/components/SvgPrivacy.vue";
-import SvgTerms from "@/components/SvgTerms.vue";
+import BaseJobs from "@/components/BaseJobs.vue";
+import BasePrivacy from "@/components/BasePrivacy.vue";
+import BaseTerms from "@/components/BaseTerms.vue";
 
 export default {
   data() {
@@ -11,9 +11,9 @@ export default {
   },
 
   components: {
-    SvgJobs,
-    SvgPrivacy,
-    SvgTerms,
+    BaseJobs,
+    BasePrivacy,
+    BaseTerms,
   },
 };
 </script>
@@ -31,13 +31,13 @@ export default {
           >Links
           <div class="links-container" v-if="isOpen">
             <div class="links-item">
-              <SvgPrivacy />
+              <BasePrivacy />
             </div>
             <div class="links-item">
-              <SvgTerms />
+              <BaseTerms />
             </div>
             <div class="links-item">
-              <SvgJobs />
+              <BaseJobs />
             </div>
           </div>
         </a>
