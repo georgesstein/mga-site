@@ -81,6 +81,7 @@ export default {
     position: fixed;
     background-color: rgba(58, 58, 60, 0.6);
     border-radius: 10px;
+    backdrop-filter: blur(15px);
     transition: 0.3s;
   }
 
