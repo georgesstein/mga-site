@@ -1,0 +1,33 @@
+<template>
+  <div class="link-item">
+    <svg
+      width="14"
+      height="12"
+      viewBox="0 0 14 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M13.75 3.8325V9.5625C13.75 10.8623 12.7327 11.9244 11.4508 11.9961L11.3125 12H2.6875C1.38773 12 0.325566 10.9827 0.253859 9.70082L0.25 9.5625V3.8325L6.73802 7.24777C6.90201 7.33408 7.09799 7.33408 7.26198 7.24777L13.75 3.8325ZM2.6875 0.75H11.3125C12.456 0.75 13.4156 1.53743 13.6786 2.59963L7 6.11435L0.321361 2.59963C0.573435 1.58169 1.46523 0.816096 2.54556 0.754064L2.6875 0.75Z"
+        fill="#AEAEB2"
+      />
+    </svg>
+    info@mga.team
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.link-item {
+  @include small-light;
+  color: $second;
+  display: flex;
+  align-items: center;
+  column-gap: 13px;
+
+  &:hover path,
+  &:hover {
+    color: $base;
+    fill: $base;
+  }
+}
+</style>
