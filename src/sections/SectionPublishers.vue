@@ -1,9 +1,8 @@
 <script>
 import HeadingBlock from "@/components/HeadingBlock.vue";
-import AdvertisersTileItem from "@/components/AdvertisersTileItem.vue";
 import PublishersTileItem from "@/components/PublishersTileItem.vue";
 
-import { PUBLISHERS } from "@/assets/content.js"
+import { PUBLISHERS } from "@/assets/content.js";
 
 export default {
   data() {
@@ -14,7 +13,6 @@ export default {
 
   components: {
     HeadingBlock,
-    AdvertisersTileItem,
     PublishersTileItem,
   },
 };
