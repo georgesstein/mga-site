@@ -1,22 +1,22 @@
 <script>
 import HeadingBlock from "@/components/HeadingBlock.vue";
 export default {
-  methods: {
-    play() {
-      this.$refs.videoPlayer.play();
-    },
-    pause() {
-      this.$refs.videoPlayer.pause();
-    },
-    stop() {
-      const { videoPlayer } = this.$refs;
-      videoPlayer.pause();
-      videoPlayer.currentTime = 0;
-    },
-    setSpeed(speed) {
-      this.$refs.videoPlayer.playbackRate = speed;
-    },
-  },
+  // methods: {
+  //   play() {
+  //     this.$refs.videoPlayer.play();
+  //   },
+  //   pause() {
+  //     this.$refs.videoPlayer.pause();
+  //   },
+  //   stop() {
+  //     const { videoPlayer } = this.$refs;
+  //     videoPlayer.pause();
+  //     videoPlayer.currentTime = 0;
+  //   },
+  //   setSpeed(speed) {
+  //     this.$refs.videoPlayer.playbackRate = speed;
+  //   },
+  // },
 
   components: {
     HeadingBlock,

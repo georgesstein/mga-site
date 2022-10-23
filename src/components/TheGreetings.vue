@@ -24,6 +24,10 @@ export default {};
   h1 {
     @include greetings-title;
     margin-bottom: 10px;
+    background: radial-gradient(55% 135% at 38% 30%, #ffffff 0%, #b8b8b8 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   p {

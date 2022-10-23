@@ -24,14 +24,28 @@ export default {
 </script>
 
 <template>
-  <button href="#" :style="button_style">
-    <slot></slot>
-    {{ title }}
-  </button>
+  <div>
+    <a href="#" :style="button_style" class="btn btn-white btn-animate">
+      <slot></slot>
+      {{ title }}
+    </a>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-button {
+.btn:link,
+.btn:visited {
+  padding: 0px 60px;
+  border-radius: 17px;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
   @include small-bold;
 
   height: 50px;
@@ -43,9 +57,5 @@ button {
   text-decoration: none;
   background-color: $highlight;
   color: $base;
-  border-radius: 17px;
-  border: none;
-  z-index: 10;
-  cursor: pointer;
 }
 </style>
