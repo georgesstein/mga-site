@@ -3,15 +3,31 @@ import TheNavigation from "@/components/TheNavigation.vue";
 import BaseLogo from "@/components/BaseLogo.vue";
 
 export default {
+  data() {
+    return {
+      scrollPosition: null,
+    };
+  },
+
+  methods: {
+    updateScroll() {
+      this.scrollPosition = window.scrollY;
+    },
+  },
+
   components: {
     BaseLogo,
     TheNavigation,
+  },
+
+  mounted() {
+    window.addEventListener("scroll", this.updateScroll);
   },
 };
 </script>
 
 <template>
-  <div class="header">
+  <div class="header" :class="{ 'header-scroll': scrollPosition > 50 }">
     <BaseLogo />
     <TheNavigation />
   </div>
@@ -24,10 +40,17 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   padding: 0px 150px;
   z-index: 30;
+  transition: background-color 0.2s, height 0.2s;
+}
+
+.header-scroll {
+  backdrop-filter: blur(10px);
+  background-color: $footerBackground;
+  height: 90px;
 }
 </style>
