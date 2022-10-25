@@ -3,7 +3,9 @@ import SectionMain from "@/sections/SectionMain.vue";
 import SectionAdvertisers from "@/sections/SectionAdvertisers.vue";
 import SectionPublishers from "@/sections/SectionPublishers.vue";
 import SectionAboutUs from "@/sections/SectionAboutUs.vue";
-import TheFooter from "@/components/TheFooter.vue"
+import SectionContactUs from "@/sections/SectionContactUs.vue";
+import TheFooter from "@/components/TheFooter.vue";
+import ParallaxBlock from "@/components/ParallaxBlock.vue";
 
 export default {
   components: {
@@ -11,7 +13,9 @@ export default {
     SectionAdvertisers,
     SectionPublishers,
     SectionAboutUs,
+    SectionContactUs,
     TheFooter,
+    ParallaxBlock,
   },
 };
 </script>
@@ -19,8 +23,10 @@ export default {
 <template>
   <SectionMain />
   <SectionAdvertisers />
+  <ParallaxBlock />
   <SectionPublishers />
   <SectionAboutUs />
+  <SectionContactUs />
   <TheFooter />
 </template>
 
