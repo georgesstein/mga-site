@@ -1,5 +1,5 @@
 <template>
-  <div class="link-item">
+  <a class="link-item">
     <svg
       width="16"
       height="15"
@@ -13,12 +13,13 @@
       />
     </svg>
     Jobs
-  </div>
+  </a>
 </template>
 
 <style lang="scss" scoped>
 .link-item {
   @include small-light;
+  width: 100%;
   color: $second;
   display: flex;
   align-items: center;

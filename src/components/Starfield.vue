@@ -161,10 +161,10 @@ export default {
               fragmentShader: fragmentShader,
             }"
           >
-            <Texture
+            <!-- <Texture
               src="https://assets.codepen.io/33787/sprite.png"
               uniform="uTexture"
-            />
+            /> -->
           </ShaderMaterial>
         </Points>
       </Scene>

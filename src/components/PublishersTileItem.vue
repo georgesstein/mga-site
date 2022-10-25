@@ -43,6 +43,22 @@ watchEffect(async () => {
   overflow: hidden;
   aspect-ratio: 4 / 3;
 
+  @media #{$phones} {
+    aspect-ratio: 3 / 2;
+  }
+
+  @media #{$phonesLarge} {
+    aspect-ratio: 3 / 1;
+  }
+
+  @media #{$tabletsLandscape} {
+    aspect-ratio: 4 / 3;
+  }
+
+  @media #{$laptops} {
+    aspect-ratio: 4 / 3;
+  }
+
   & .content {
     top: 0;
     right: 0;
@@ -60,6 +76,29 @@ watchEffect(async () => {
     z-index: 1;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
 
+    @media #{$phones} {
+      padding: 5px;
+      height: 100%;
+      background: rgba(28, 28, 30, 0.8);
+    }
+
+    @media #{$phonesLarge} {
+      padding: 0px;
+      background: rgba(28, 28, 30, 0.8);
+    }
+
+    @media #{$tabletsLandscape} {
+      padding: 10%;
+      position: absolute;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+    }
+
+    @media #{$laptops} {
+      padding: 10%;
+      position: absolute;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+    }
+
     &:hover {
       background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
     }
@@ -75,9 +114,25 @@ watchEffect(async () => {
     }
   }
 
-  & img {
+  & .img {
     max-width: 100%;
     transition: all 1s;
+
+    @media #{$phones} {
+      display: none;
+    }
+
+    @media #{$phonesLarge} {
+      display: none;
+    }
+
+    @media #{$tabletsLandscape} {
+      display: block;
+    }
+
+    @media #{$laptops} {
+      display: block;
+    }
   }
 }
 </style>

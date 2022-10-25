@@ -32,6 +32,14 @@ watchEffect(async () => {
   transition: background-color 0.3s ease-in;
   min-height: 330px;
 
+  @media #{$phonesLarge} {
+    min-height: 0;
+  }
+
+  @media #{$phones} {
+    min-height: 0;
+  }
+
   &:hover {
     background-color: #1c1c1e;
     box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.25);

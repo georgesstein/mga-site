@@ -13,7 +13,7 @@ export default {
 
   computed: {
     button_style() {
-      const width = this.width ? `${this.width}px` : "100%";
+      const width = this.width ? `${this.width}px` : "";
 
       return {
         width: width,
@@ -24,8 +24,8 @@ export default {
 </script>
 
 <template>
-  <div>
-    <a href="#" :style="button_style" class="btn btn-white btn-animate">
+  <div href="#" class="wrapper" :style="button_style">
+    <a class="btn btn-white btn-animate">
       <slot></slot>
       {{ title }}
     </a>
@@ -33,11 +33,24 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+.wrapper {
+  cursor: pointer;
+
+  & a {
+    border-radius: 17px;
+  }
+}
+
 .btn:link,
 .btn:visited {
   padding: 0px 60px;
   border-radius: 17px;
   transition: all 0.2s;
+  width: 100%;
+
+  @media #{$phones} {
+    width: 100% !important;
+  }
 }
 
 .btn:hover {
@@ -54,7 +67,6 @@ export default {
   justify-content: center;
   align-items: center;
   column-gap: 8px;
-  text-decoration: none;
   background-color: $highlight;
   color: $base;
 }

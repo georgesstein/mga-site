@@ -13,8 +13,8 @@ import {
   UnrealBloomPass,
   ZoomBlurPass,
 } from "troisjs";
-
 import { Clock, Color, MathUtils, Vector3 } from "three";
+import ScrollParallax from "vue3-parallax/src/components/ScrollParallax.vue";
 
 import { niceColors } from "@/assets/styles/nice-colors.js";
 
@@ -66,9 +66,10 @@ export default {
     TheHeader,
     ContactButton,
     TheGreetings,
+    ScrollParallax,
   },
   setup() {
-    const POINTS_COUNT = 30000;
+    const POINTS_COUNT = 5000;
     const palette = niceColors[8];
 
     const positions = new Float32Array(POINTS_COUNT * 3);
@@ -113,6 +114,8 @@ export default {
     return {
       zoomStrength: 0,
       buttonTitle: "Boost Your Sales",
+      windowTop: 0,
+      height: window.innerHeight,
     };
   },
 
@@ -131,27 +134,44 @@ export default {
       const tiltY = lerp(points.rotation.y, -positionN.x * da, 0.02);
       points.rotation.set(tiltX, tiltY, 0);
     });
+
+    window.addEventListener("scroll", this.onScroll);
   },
 
-  // methods: {
-  //   updateColors() {
-  //     const colorAttribute = this.$refs.points.geometry.attributes.color;
-  //     const ip = randInt(0, 99);
-  //     const palette = niceColors[ip];
-  //     console.log(ip);
-  //     const color = new Color();
-  //     for (let i = 0; i < this.POINTS_COUNT; i++) {
-  //       color.set(palette[randInt(0, palette.length)]);
-  //       color.toArray(colorAttribute.array, i * 3);
-  //     }
-  //     colorAttribute.needsUpdate = true;
-  //   },
-  // },
+  methods: {
+    scrollToMyEl(id) {
+      setTimeout(() => {
+        const myEl = document.getElementById(id);
+
+        if (myEl === null) {
+          return;
+        }
+
+        this.$smoothScroll({
+          scrollTo: myEl,
+        });
+      }, 100);
+    },
+
+    onScroll(e) {
+      this.windowTop = e.target.documentElement.scrollTop;
+    },
+  },
+
+  computed: {
+    styles() {
+      if (this.windowTop > this.height) {
+        return "visibility: hidden";
+      } else {
+        return "visibility: visible";
+      }
+    },
+  },
 };
 </script>
 
 <template>
-  <div class="section-main">
+  <div id="home" class="section-main" :style="styles">
     <Renderer ref="renderer" pointer resize="window">
       <Camera :position="{ z: 0 }" :fov="50" />
       <Scene>
@@ -166,10 +186,7 @@ export default {
               fragmentShader: fragmentShader,
             }"
           >
-            <Texture
-              src="https://assets.codepen.io/33787/sprite.png"
-              uniform="uTexture"
-            />
+            <Texture uniform="uTexture" src="/particle.png" />
           </ShaderMaterial>
         </Points>
       </Scene>
@@ -180,19 +197,22 @@ export default {
       </EffectComposer>
     </Renderer>
 
-    <TheHeader />
-
-    <TheGreetings>
-      <ContactButton
-        href="#"
-        @mouseenter="targetTimeCoef = 60"
-        @mouseleave="targetTimeCoef = 1"
-        :title="buttonTitle"
-        :width="300"
-      >
-        <img src="@/assets/icons/button-rocket.svg" />
-      </ContactButton>
-    </TheGreetings>
+    <scroll-parallax class="greetings" direction="y" :speed="0.3">
+      <TheGreetings>
+        <ContactButton
+          tabindex="0"
+          href="#contact"
+          v-smooth-scroll
+          @keyup.enter="scrollToMyEl('contact')"
+          @mouseenter="targetTimeCoef = 60"
+          @mouseleave="targetTimeCoef = 1"
+          :title="buttonTitle"
+          :width="300"
+        >
+          <img src="@/assets/icons/button-rocket.svg" />
+        </ContactButton>
+      </TheGreetings>
+    </scroll-parallax>
   </div>
 </template>
 
@@ -207,6 +227,15 @@ export default {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+
+  @media #{$phones} {
+    width: 100vw;
+    justify-content: center;
+  }
+
+  & .greetings {
+    z-index: 2;
+  }
 
   canvas {
     display: block;

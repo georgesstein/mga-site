@@ -26,7 +26,7 @@ export default {
 </script>
 
 <template>
-  <div class="contact">
+  <div id="contact" class="contact">
     <HeadingBlock title="CONTACT US" />
 
     <div class="wrapper">
@@ -41,7 +41,7 @@ export default {
         />
         <textarea type="text" v-model="messageText" placeholder="Message" />
 
-        <ContactButton title="Send">
+        <ContactButton tabindex="0" title="Send">
           <img src="@/assets/icons/button-mail.svg" />
         </ContactButton>
       </form>
@@ -58,14 +58,22 @@ export default {
   justify-content: center;
   align-items: center;
   row-gap: 30px;
-  padding: 130px 0px;
+  padding: 40px 0px;
   background-color: $baseBackground;
   z-index: 20;
   position: relative;
 
+  @media #{$phones} {
+    padding: 40px 5vw;
+  }
+
   & .wrapper {
     width: 540px;
     height: 100%;
+
+    @media #{$phones} {
+      width: 100%;
+    }
 
     & .form {
       width: 100%;
@@ -84,6 +92,10 @@ export default {
         background-color: transparent;
         caret-color: $base;
         color: $base;
+
+        &:focus {
+          outline: 1px dashed $base;
+        }
       }
 
       & textarea {
@@ -97,6 +109,10 @@ export default {
         background-color: transparent;
         caret-color: $base;
         color: $base;
+
+        &:focus {
+          outline: 1px dashed $base;
+        }
       }
     }
   }

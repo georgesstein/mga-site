@@ -51,6 +51,10 @@ export default {
   width: 700px;
   text-align: center;
 
+  @media #{$phones} {
+    width: 100%;
+  }
+
   & span {
     @include small-light;
     color: $second;
@@ -59,6 +63,10 @@ export default {
   & h2 {
     @include large;
     color: $base;
+
+    @media #{$phones} {
+      font-size: $phoneSize;
+    }
   }
 
   & p {

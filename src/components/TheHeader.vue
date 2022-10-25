@@ -28,7 +28,9 @@ export default {
 
 <template>
   <div class="header" :class="{ 'header-scroll': scrollPosition > 50 }">
-    <BaseLogo />
+    <a href="#home" v-smooth-scroll>
+      <BaseLogo />
+    </a>
     <TheNavigation />
   </div>
 </template>
@@ -43,7 +45,7 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  padding: 0px 150px;
+  padding: 0px 10vw;
   z-index: 30;
   transition: background-color 0.2s, height 0.2s;
 }
@@ -51,6 +53,5 @@ export default {
 .header-scroll {
   backdrop-filter: blur(10px);
   background-color: $footerBackground;
-  height: 90px;
 }
 </style>

@@ -10,6 +10,22 @@ export default {
     };
   },
 
+  methods: {
+    scrollToMyEl(id) {
+      setTimeout(() => {
+        const myEl = document.getElementById(id);
+
+        if (myEl === null) {
+          return;
+        }
+
+        this.$smoothScroll({
+          scrollTo: myEl,
+        });
+      }, 100);
+    },
+  },
+
   components: {
     BaseJobs,
     BasePrivacy,
@@ -21,26 +37,41 @@ export default {
 <template>
   <div class="navigation-container">
     <nav class="navigation">
-      <a>Home</a>
-      <a>Advertisers</a>
-      <a>Publishers</a>
-      <a>About Us</a>
-      <a>Contact</a>
-      <div @mouseover="isOpen = true" @mouseleave="isOpen = false">
-        <a
-          >Links
-          <div class="links-container" v-if="isOpen">
-            <div class="links-item">
-              <BasePrivacy />
-            </div>
-            <div class="links-item">
-              <BaseTerms />
-            </div>
-            <div class="links-item">
-              <BaseJobs />
-            </div>
-          </div>
-        </a>
+      <router-link href="#home" to="/" v-smooth-scroll>Home</router-link>
+      <router-link to="/" @click="scrollToMyEl('advertisers')" v-smooth-scroll
+        >Advertisers</router-link
+      >
+      <router-link to="/" @click="scrollToMyEl('publishers')" v-smooth-scroll
+        >Publishers</router-link
+      >
+      <router-link to="/" @click="scrollToMyEl('about')" v-smooth-scroll
+        >About Us</router-link
+      >
+      <a href="#contact" v-smooth-scroll>Contact</a>
+
+      <div
+        class="links-container"
+        @mouseover="isOpen = true"
+        @mouseleave="isOpen = false"
+      >
+        <a href="#links" v-smooth-scroll>Links</a>
+
+        <div class="links" v-if="isOpen">
+          <router-link
+            to="/privacy-policy"
+            href="#home"
+            v-smooth-scroll
+            class="links-item"
+          >
+            <BasePrivacy />
+          </router-link>
+          <a class="links-item">
+            <BaseTerms />
+          </a>
+          <a class="links-item">
+            <BaseJobs />
+          </a>
+        </div>
       </div>
     </nav>
   </div>
@@ -49,7 +80,6 @@ export default {
 <style lang="scss" scoped>
 .navigation-container {
   display: flex;
-  flex-direction: column;
 
   .navigation {
     @include small-bold;
@@ -58,7 +88,6 @@ export default {
     width: max-content;
     display: flex;
     align-items: center;
-    color: $second;
     flex-direction: row;
 
     a {
@@ -67,31 +96,38 @@ export default {
       padding: 0px 20px;
       display: flex;
       align-items: center;
+      color: $second;
 
       &:hover {
         color: $base;
       }
     }
-  }
 
-  & .links-container {
-    align-self: flex-end;
-    top: 70px;
-    right: 150px;
-    position: fixed;
-    background-color: rgba(58, 58, 60, 0.6);
-    border-radius: 10px;
-    backdrop-filter: blur(15px);
-    transition: 0.3s;
-  }
+    & .links-container {
+      display: flex;
+      flex-direction: column;
 
-  & .links-item {
-    padding: 13px 25px 13px 15px;
-    cursor: pointer;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+      & .links {
+        align-self: flex-end;
+        top: 70px;
+        right: 11vw;
+        position: absolute;
+        background-color: rgba(58, 58, 60, 0.9);
+        border-radius: 10px;
+        backdrop-filter: blur(15px);
+        transition: 0.3s;
 
-    & svg {
-      fill: $base;
+        &-item {
+          padding: 0px;
+          padding-right: 15px;
+          cursor: pointer;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+
+          & svg {
+            fill: $base;
+          }
+        }
+      }
     }
   }
 }

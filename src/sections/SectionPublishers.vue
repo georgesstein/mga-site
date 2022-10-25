@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-  <div class="publishers">
+  <div id="publishers" class="publishers">
     <HeadingBlock
       beforeHeading="for"
       title="PUBLISHERS"
@@ -60,6 +60,22 @@ You become part of the family, which shares all knowledge and background to make
 
     &:hover {
       cursor: url("@/assets/icons/cursor.svg"), auto;
+    }
+
+    @media #{$phones} {
+      grid-template-columns: 1fr;
+    }
+
+    @media #{$phonesLarge} {
+      grid-template-columns: 1fr;
+    }
+
+    @media #{$tabletsLandscape} {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media #{$laptops} {
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 }
