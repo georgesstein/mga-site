@@ -1,5 +1,4 @@
 <script>
-// import { ref } from "vue";
 import ScrollParallax from "vue3-parallax/src/components/ScrollParallax.vue";
 
 export default {
@@ -7,67 +6,10 @@ export default {
     ScrollParallax,
   },
 };
-
-// let didScroll = false;
-
-// // const parallaxTitle = document.querySelector("to-left");
-
-// const scrollInProgress = () => {
-//   didScroll = true;
-// };
-
-// const raf = () => {
-//   // if (didScroll) {
-//   requestAnimationFrame(() => {
-//     parallaxTitles.forEach((element, index) => {
-//       console.log(element);
-//       element.style.transform = "translateX(" + window.scrollY / 10 + "%)";
-//     });
-//   });
-//   // didScroll = false;
-// };
-// // requestAnimationFrame(raf);
-// // };
-
-// requestAnimationFrame(raf);
-// // window.addEventListener('scroll', scrollInProgress)
-// window.addEventListener("scroll", () => {
-//   requestAnimationFrame(raf);
-// });
-// export default {
-//   setup() {
-//     const one = ref(null);
-//     const two = ref(null);
-//     const three = ref(null);
-
-//     function x() {
-//       const scrolled = window.pageYOffset;
-
-//       const toLeftCoords = scrolled * -0.3 + "px";
-//       const toRightCoords = scrolled * 0.3 + "px";
-
-//       one.value.style.transform = "translateX(" + toLeftCoords + ")";
-//       two.value.style.transform = "translateX(" + toRightCoords + ")";
-//       three.value.style.transform = "translateX(" + toLeftCoords + ")";
-//     }
-
-//     window.addEventListener("scroll", x);
-
-//     return {
-//       one,
-//       two,
-//       three,
-//     };
-//   },
-// };
 </script>
 
 <template>
   <div class="parallax">
-    <!-- <img class="to-left" ref="one" src="@/assets/parallax/MARKETING.svg" />
-    <img class="to-right" ref="two" src="@/assets/parallax/GLOBAL.svg" />
-    <img class="to-left" ref="three" src="@/assets/parallax/AGENCY.svg" /> -->
-
     <scroll-parallax class="first" direction="x" :left="true" :speed="0.3">
       <img src="@/assets/parallax/MARKETING.svg" />
     </scroll-parallax>

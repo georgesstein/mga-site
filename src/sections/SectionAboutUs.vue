@@ -5,6 +5,7 @@ import ScrollParallax from "vue3-parallax/src/components/ScrollParallax.vue";
 import HeadingBlock from "@/components/HeadingBlock.vue";
 
 export default {
+  // for player
   // methods: {
   //   play() {
   //     this.$refs.videoPlayer.play();
@@ -26,45 +27,6 @@ export default {
     HeadingBlock,
     ScrollParallax,
   },
-
-  // data() {
-  //   return {
-  //     elPosition: undefined,
-  //   };
-  // },
-
-  // mounted() {
-  //   // console.log(this.$refs.about)
-  //   // this.elPosition = this.$refs.about.getBoundingClientRect().top;
-  //   // const windowHeight = window.innerHeight;
-
-  //   // function x() {
-  //   //   const scrollPosition = window.pageYOffset;
-  //   //   // one.value.style.transform = "translateX(" + toLeftCoords + ")";
-  //   //   console.log(elPosition, scrollPosition, windowHeight);
-  //   // }
-
-  //   // window.addEventListener("scroll", x);
-  // },
-
-  // setup() {
-  //   const player = ref(null);
-  //   const about = ref(null)
-
-  //   function x() {
-  //     const scrollPosition = window.pageYOffset;
-  //     // const elementPositionTo = about.getBoundingClientRect().top;
-
-  //     const toLeftCoords = scrollPosition * -0.2 + "px";
-  //     player.value.style.marginTop = "translateY(" + toLeftCoords + ")";
-  //   }
-
-  //   window.addEventListener("scroll", x);
-
-  //   return {
-  //     player,
-  //   };
-  // },
 };
 </script>
 
