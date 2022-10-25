@@ -1,5 +1,9 @@
 <script>
+import { ref } from "vue";
+
+import ScrollParallax from "vue3-parallax/src/components/ScrollParallax.vue";
 import HeadingBlock from "@/components/HeadingBlock.vue";
+
 export default {
   // methods: {
   //   play() {
@@ -20,27 +24,73 @@ export default {
 
   components: {
     HeadingBlock,
+    ScrollParallax,
   },
+
+  // data() {
+  //   return {
+  //     elPosition: undefined,
+  //   };
+  // },
+
+  // mounted() {
+  //   // console.log(this.$refs.about)
+  //   // this.elPosition = this.$refs.about.getBoundingClientRect().top;
+  //   // const windowHeight = window.innerHeight;
+
+  //   // function x() {
+  //   //   const scrollPosition = window.pageYOffset;
+  //   //   // one.value.style.transform = "translateX(" + toLeftCoords + ")";
+  //   //   console.log(elPosition, scrollPosition, windowHeight);
+  //   // }
+
+  //   // window.addEventListener("scroll", x);
+  // },
+
+  // setup() {
+  //   const player = ref(null);
+  //   const about = ref(null)
+
+  //   function x() {
+  //     const scrollPosition = window.pageYOffset;
+  //     // const elementPositionTo = about.getBoundingClientRect().top;
+
+  //     const toLeftCoords = scrollPosition * -0.2 + "px";
+  //     player.value.style.marginTop = "translateY(" + toLeftCoords + ")";
+  //   }
+
+  //   window.addEventListener("scroll", x);
+
+  //   return {
+  //     player,
+  //   };
+  // },
 };
 </script>
 
 <template>
-  <div class="about">
+  <div id="about" ref="about" class="about">
     <HeadingBlock
       title="ABOUT US"
       descriptionColor="#FF2D55"
       description="Founded in 2017, MGA team was formed by group of affiliates with decade of online marketing experience. We help numerous advertisers to enlarge their sales and gain income. 
 Whether you're an advertiser, publisher, or developer we are happy to consider cooperation on mutually beneficial conditions and assist in achieving business goals."
     />
-
-    <div class="player-outer">
+    <scroll-parallax
+      direction="y"
+      :down="true"
+      :speed="0.3"
+      class="player-outer"
+    >
+      <!-- <div ref="player"> -->
       <div class="player">
         <div class="controls">
           <img class="play" src="@/assets/about/btn.svg" />
           <img class="caption" src="@/assets/about/watch-now.svg" />
         </div>
       </div>
-    </div>
+      <!-- </div> -->
+    </scroll-parallax>
 
     <!-- video player example --->
     <!-- <video width="320" height="240" ref="videoPlayer">
@@ -71,15 +121,23 @@ Whether you're an advertiser, publisher, or developer we are happy to consider c
   justify-content: center;
   align-items: center;
   row-gap: 30px;
-  padding: 40px 150px;
+  padding: 40px 10vw;
   z-index: 20;
   position: relative;
   background-size: contain;
   background-color: $baseBackground;
+  background-image: url("@/assets/about/logo-silhouette.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @media #{$phones} {
+    padding: 40px 5vw;
+  }
 
   & .player-outer {
     height: 50vw;
     width: 100%;
+    margin-top: 130vh;
     border-radius: 24px;
     background-size: contain;
     background-image: url("@/assets/about/player-outer.png");
@@ -112,9 +170,19 @@ Whether you're an advertiser, publisher, or developer we are happy to consider c
         height: 80px;
         transition: all 0.2s;
 
+        @media #{$phones} {
+          height: 10vw;
+        }
+
         &:hover {
           cursor: pointer;
-          transform: scale(1.1)
+          transform: scale(1.1);
+        }
+      }
+
+      & .caption {
+        @media #{$phones} {
+          height: 5vw;
         }
       }
     }
