@@ -46,8 +46,8 @@ export default {
   background-color: $baseBackground;
   z-index: 20;
   position: relative;
-  border-top-left-radius: 50% 10vw;
-  border-top-right-radius: 50% 10vw;
+  border-top-left-radius: 80% 10vw;
+  border-top-right-radius: 80% 10vw;
   overflow: hidden;
 
   @media #{$phones} {

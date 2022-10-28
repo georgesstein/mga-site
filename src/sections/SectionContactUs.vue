@@ -92,10 +92,6 @@ export default {
         background-color: transparent;
         caret-color: $base;
         color: $base;
-
-        &:focus {
-          outline: 1px dashed $base;
-        }
       }
 
       & textarea {
@@ -109,10 +105,6 @@ export default {
         background-color: transparent;
         caret-color: $base;
         color: $base;
-
-        &:focus {
-          outline: 1px dashed $base;
-        }
       }
     }
   }

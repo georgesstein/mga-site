@@ -34,10 +34,15 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper {
+  width: 360px;
   cursor: pointer;
 
   & a {
     border-radius: 17px;
+  }
+
+  @media #{$phones} {
+    width: 100%;
   }
 }
 
@@ -56,12 +61,13 @@ export default {
 .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: #fa4e6d;
 }
 
 .btn-white {
   @include small-bold;
 
-  height: 50px;
+  height: 60px;
   display: flex;
   padding: 0px 60px;
   justify-content: center;

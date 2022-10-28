@@ -49,6 +49,10 @@ export default {
       @media #{$phones} {
         height: 50px;
       }
+
+      @media #{$largeScreen} {
+        height: 346px;
+      }
     }
   }
 
@@ -68,12 +72,16 @@ export default {
       @media #{$phones} {
         height: 70px;
       }
+
+      @media #{$largeScreen} {
+        height: 446px;
+      }
     }
   }
 
   & .third {
     position: relative;
-    left: 400px;
+    left: 600px;
     transition: all 0.05s ease-in-out;
     -webkit-transition: all 0.05s ease-in-out;
     -moz-transition: all 0.05s ease-in-out;
@@ -86,6 +94,10 @@ export default {
     & img {
       @media #{$phones} {
         height: 60px;
+      }
+
+      @media #{$largeScreen} {
+        height: 546px;
       }
     }
   }

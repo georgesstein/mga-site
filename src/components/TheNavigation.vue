@@ -11,16 +11,16 @@ export default {
   },
 
   methods: {
-    scrollToMyEl(id) {
+    scrollToEl(id) {
       setTimeout(() => {
-        const myEl = document.getElementById(id);
+        const el = document.getElementById(id);
 
-        if (myEl === null) {
+        if (el === null) {
           return;
         }
 
         this.$smoothScroll({
-          scrollTo: myEl,
+          scrollTo: el,
         });
       }, 100);
     },
@@ -38,13 +38,13 @@ export default {
   <div class="navigation-container">
     <nav class="navigation">
       <router-link href="#home" to="/" v-smooth-scroll>Home</router-link>
-      <router-link to="/" @click="scrollToMyEl('advertisers')" v-smooth-scroll
+      <router-link to="/" @click="scrollToEl('advertisers')" v-smooth-scroll
         >Advertisers</router-link
       >
-      <router-link to="/" @click="scrollToMyEl('publishers')" v-smooth-scroll
+      <router-link to="/" @click="scrollToEl('publishers')" v-smooth-scroll
         >Publishers</router-link
       >
-      <router-link to="/" @click="scrollToMyEl('about')" v-smooth-scroll
+      <router-link to="/" @click="scrollToEl('about')" v-smooth-scroll
         >About Us</router-link
       >
       <a href="#contact" v-smooth-scroll>Contact</a>
@@ -90,9 +90,13 @@ export default {
     align-items: center;
     flex-direction: row;
 
+    @media #{$largeScreen} {
+      @include medium-bold;
+    }
+
     a {
       cursor: pointer;
-      height: 50px;
+      height: 100px;
       padding: 0px 20px;
       display: flex;
       align-items: center;
@@ -109,7 +113,7 @@ export default {
 
       & .links {
         align-self: flex-end;
-        top: 70px;
+        top: 100px;
         right: 11vw;
         position: absolute;
         background-color: rgba(58, 58, 60, 0.9);
@@ -118,10 +122,17 @@ export default {
         transition: 0.3s;
 
         &-item {
+          height: 50px;
           padding: 0px;
           padding-right: 15px;
           cursor: pointer;
           border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+
+          @media #{$largeScreen} {
+            height: 70px;
+            padding-right: 25px;
+            padding-left: 10px;
+          }
 
           & svg {
             fill: $base;

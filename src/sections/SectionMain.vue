@@ -207,7 +207,6 @@ export default {
           @mouseenter="targetTimeCoef = 60"
           @mouseleave="targetTimeCoef = 1"
           :title="buttonTitle"
-          :width="300"
         >
           <img src="@/assets/icons/button-rocket.svg" />
         </ContactButton>

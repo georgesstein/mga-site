@@ -115,7 +115,7 @@ watchEffect(async () => {
   }
 
   & .img {
-    max-width: 100%;
+    width: 100%;
     transition: all 1s;
 
     @media #{$phones} {

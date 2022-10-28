@@ -17,16 +17,16 @@ export default {
   },
 
   methods: {
-    scrollToMyEl(id) {
+    scrollToEl(id) {
       setTimeout(() => {
-        const myEl = document.getElementById(id);
+        const el = document.getElementById(id);
 
-        if (myEl === null) {
+        if (el === null) {
           return;
         }
 
         this.$smoothScroll({
-          scrollTo: myEl,
+          scrollTo: el,
         });
       }, 100);
     },
@@ -91,8 +91,8 @@ export default {
         <div class="links-block">
           <router-link
             to="/privacy-policy"
-            href="#home"
-            @keyup.enter="scrollToMyEl('home')"
+            @click="scrollToEl('home')"
+            @keyup.enter="scrollToEl('home')"
             v-smooth-scroll
             ><BasePrivacy
           /></router-link>

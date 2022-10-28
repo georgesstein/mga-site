@@ -41,6 +41,18 @@ export default {};
       font-size: $phoneTitleSize;
       line-height: $phoneTitleSize;
     }
+
+    @media #{$laptopsLarge} {
+      width: 60%;
+      font-size: 96px;
+      line-height: 96px;
+    }
+
+    @media #{$largeScreen} {
+      width: 60%;
+      font-size: 160px;
+      line-height: 160px;
+    }
   }
 
   p {
@@ -52,6 +64,11 @@ export default {};
 
     @media #{$phones} {
       width: 100%;
+    }
+
+    @media #{$largeScreen} {
+      @include medium-bold;
+      width: 40%;
     }
   }
 }
