@@ -1,6 +1,4 @@
 <script>
-import { ref } from "vue";
-
 import ScrollParallax from "vue3-parallax/src/components/ScrollParallax.vue";
 import HeadingBlock from "@/components/HeadingBlock.vue";
 
@@ -99,7 +97,9 @@ Whether you're an advertiser, publisher, or developer we are happy to consider c
   & .player-outer {
     height: 50vw;
     width: 100%;
-    margin-top: 130vh;
+    /* margin-top: 130vh;
+    margin-bottom: -110vh; */
+    /* margin-top: 100px; */
     border-radius: 24px;
     background-size: contain;
     background-image: url("@/assets/about/player-outer.png");
@@ -107,6 +107,31 @@ Whether you're an advertiser, publisher, or developer we are happy to consider c
     background-size: cover;
     background-repeat: no-repeat;
     padding: 24px;
+
+    @media #{$phones} {
+      margin-top: 190vh;
+      margin-bottom: -170vh;
+    }
+
+    @media #{$phonesLarge} {
+      margin-top: 200vh;
+      margin-bottom: -170vh;
+    }
+
+    @media #{$tabletsLandscape} {
+      margin-top: 160vh;
+      margin-bottom: -140vh;
+    }
+
+    @media #{$laptops} {
+      margin-top: 130vh;
+      margin-bottom: -110vh;
+    }
+
+    @media #{$largeScreen} {
+      margin-top: 110vh;
+      margin-bottom: -0vh;
+    }
 
     .player {
       height: 100%;
