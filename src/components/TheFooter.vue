@@ -96,8 +96,22 @@ export default {
             v-smooth-scroll
             ><BasePrivacy
           /></router-link>
-          <BaseTerms />
-          <BaseJobs />
+
+          <router-link
+            to="/terms"
+            @click="scrollToEl('home')"
+            @keyup.enter="scrollToEl('home')"
+            v-smooth-scroll
+            ><BaseTerms
+          /></router-link>
+
+          <router-link
+            to="/jobs"
+            @click="scrollToEl('home')"
+            @keyup.enter="scrollToEl('home')"
+            v-smooth-scroll
+            ><BaseJobs
+          /></router-link>
         </div>
       </div>
     </div>

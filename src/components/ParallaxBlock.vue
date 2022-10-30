@@ -45,6 +45,10 @@ export default {
       left: 200vw;
     }
 
+    @media #{$laptopsLarge} {
+      left: 40vw;
+    }
+
     & img {
       @media #{$phones} {
         height: 50px;
@@ -89,6 +93,10 @@ export default {
 
     @media #{$phones} {
       left: 220vw;
+    }
+
+    @media #{$laptopsLarge} {
+      left: 40vw;
     }
 
     & img {

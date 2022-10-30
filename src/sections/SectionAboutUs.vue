@@ -1,5 +1,5 @@
 <script>
-import ScrollParallax from "vue3-parallax/src/components/ScrollParallax.vue";
+// import ScrollParallax from "vue3-parallax/src/components/ScrollParallax.vue";
 import HeadingBlock from "@/components/HeadingBlock.vue";
 
 export default {
@@ -23,7 +23,107 @@ export default {
 
   components: {
     HeadingBlock,
-    ScrollParallax,
+    // ScrollParallax,
+  },
+
+  props: {
+    speed: {
+      type: Number,
+      required: false,
+      default: 0.15,
+    },
+    down: {
+      type: Boolean,
+      default: false,
+      required: false,
+    },
+    up: {
+      type: Boolean,
+      default: true,
+      required: false,
+    },
+    right: {
+      type: Boolean,
+      default: true,
+      required: false,
+    },
+    left: {
+      type: Boolean,
+      default: false,
+      requiredequired: false,
+    },
+    direction: {
+      type: String,
+      default: "y",
+      required: false,
+    },
+  },
+  data() {
+    return {
+      el: null,
+      axes: null,
+      speedCoeff: null,
+      distanceToElementTop: null,
+      scrollPosition: null,
+    };
+  },
+  methods: {
+    defineScrollPosition() {
+      this.scrollPosition = window.pageYOffset;
+
+      if (
+        this.scrollPosition > this.distanceToElementTop - 100 &&
+        this.scrollPosition < this.distanceToElementTop + 100
+      ) {
+        this.loadParallax();
+      }
+    },
+
+    loadParallax() {
+      requestAnimationFrame(() => {
+        this.initDirection();
+        this.el = this.$refs.player;
+        // const speedCoeff = this.down ? -this.speed : this.speed;
+        // if (
+        //   this.scrollPosition > this.distanceToElementTop - 100 &&
+        //   this.scrollPosition < this.distanceToElementTop + 100
+        // ) {
+        console.log("HIP");
+
+        window.addEventListener("scroll", () => {
+          this.el.style.transform = `translate${this.axes}(${
+            window.pageYOffset * this.speedCoeff
+          }px)`;
+        });
+        // }
+      });
+    },
+
+    initDirection() {
+      if (this.direction === "x") {
+        this.axes = "X";
+        if (this.left) {
+          this.speedCoeff = -this.speed;
+        } else {
+          this.speedCoeff = this.speed;
+        }
+      } else if (this.direction === "y") {
+        this.axes = "Y";
+        if (this.down) {
+          this.speedCoeff = this.speed;
+        } else {
+          this.speedCoeff = -this.speed;
+        }
+      }
+    },
+  },
+  mounted() {
+    this.distanceToElementTop = this.$refs.about.offsetTop;
+
+    requestAnimationFrame(() => {
+      window.addEventListener("scroll", this.defineScrollPosition);
+      // this.loadParallax();
+    });
   },
 };
 </script>
@@ -36,21 +136,22 @@ export default {
       description="Founded in 2017, MGA team was formed by group of affiliates with decade of online marketing experience. We help numerous advertisers to enlarge their sales and gain income. 
 Whether you're an advertiser, publisher, or developer we are happy to consider cooperation on mutually beneficial conditions and assist in achieving business goals."
     />
-    <scroll-parallax
+    <!-- <scroll-parallax -->
+    <div
+      ref="player"
       direction="y"
-      :down="true"
+      :down="false"
       :speed="0.3"
       class="player-outer"
     >
-      <!-- <div ref="player"> -->
       <div class="player">
         <div class="controls">
           <img class="play" src="@/assets/about/btn.svg" />
           <img class="caption" src="@/assets/about/watch-now.svg" />
         </div>
       </div>
-      <!-- </div> -->
-    </scroll-parallax>
+    </div>
+    <!-- </scroll-parallax> -->
 
     <!-- video player example --->
     <!-- <video width="320" height="240" ref="videoPlayer">
@@ -82,6 +183,7 @@ Whether you're an advertiser, publisher, or developer we are happy to consider c
   align-items: center;
   row-gap: 30px;
   padding: 40px 10vw;
+  margin-top: 100px;
   z-index: 20;
   position: relative;
   background-size: contain;
@@ -95,11 +197,8 @@ Whether you're an advertiser, publisher, or developer we are happy to consider c
   }
 
   & .player-outer {
-    height: 50vw;
+    height: 45vw;
     width: 100%;
-    /* margin-top: 130vh;
-    margin-bottom: -110vh; */
-    /* margin-top: 100px; */
     border-radius: 24px;
     background-size: contain;
     background-image: url("@/assets/about/player-outer.png");
@@ -109,28 +208,30 @@ Whether you're an advertiser, publisher, or developer we are happy to consider c
     padding: 24px;
 
     @media #{$phones} {
-      margin-top: 190vh;
-      margin-bottom: -170vh;
+      margin-top: 800px;
+      margin-bottom: -700px;
+      padding: 14px;
     }
 
     @media #{$phonesLarge} {
-      margin-top: 200vh;
-      margin-bottom: -170vh;
+      margin-top: 800px;
+      margin-bottom: -700px;
     }
 
     @media #{$tabletsLandscape} {
-      margin-top: 160vh;
-      margin-bottom: -140vh;
+      margin-top: 650px;
+      margin-bottom: -550px;
     }
 
     @media #{$laptops} {
-      margin-top: 130vh;
-      margin-bottom: -110vh;
+      margin-top: 550px;
+      margin-bottom: -450px;
     }
 
     @media #{$largeScreen} {
-      margin-top: 110vh;
-      margin-bottom: -0vh;
+      height: 40vw;
+      width: 80%;
+      margin-top: 850px;
     }
 
     .player {

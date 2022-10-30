@@ -65,12 +65,24 @@ export default {
           >
             <BasePrivacy />
           </router-link>
-          <a class="links-item">
+
+          <router-link
+            to="/terms"
+            href="#home"
+            v-smooth-scroll
+            class="links-item"
+          >
             <BaseTerms />
-          </a>
-          <a class="links-item">
+          </router-link>
+
+          <router-link
+            to="/jobs"
+            href="#home"
+            v-smooth-scroll
+            class="links-item"
+          >
             <BaseJobs />
-          </a>
+          </router-link>
         </div>
       </div>
     </nav>

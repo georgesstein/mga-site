@@ -14,10 +14,20 @@ const routes = [
     component: () => import('@/pages/PrivacyPolicyPage.vue'),
   },
   {
+    path: '/terms',
+    name: 'TermsPage',
+    component: () => import('@/pages/TermsPage.vue'),
+  },
+  {
+    path: '/jobs',
+    name: 'JobsPage',
+    component: () => import('@/pages/JobsPage.vue'),
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
-    component: () => import('@/pages/NotFoundPage.vue')
-  }
+    component: () => import('@/pages/NotFoundPage.vue'),
+  },
 ]
 
 export const router = createRouter({

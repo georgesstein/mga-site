@@ -1,5 +1,7 @@
 <script>
-export default {};
+export default {
+
+};
 </script>
 
 <template>
@@ -18,13 +20,14 @@ export default {};
 .greetings-container {
   width: 100%;
   height: 100%;
-  padding: 10vw;
+  padding-left: 10vw;
   z-index: 2;
   color: $base;
   position: relative;
 
   @media #{$phones} {
     width: 100%;
+    padding-right: 10vw;
   }
 
   h1 {
@@ -49,9 +52,9 @@ export default {};
     }
 
     @media #{$largeScreen} {
-      width: 60%;
-      font-size: 160px;
-      line-height: 160px;
+      width: 50%;
+      font-size: 114px;
+      line-height: 114px;
     }
   }
 
