@@ -105,6 +105,14 @@ export default {
         background-color: transparent;
         caret-color: $base;
         color: $base;
+
+        @media #{$laptopsLarge} {
+          margin-bottom: 20px;
+        }
+
+        @media #{$largeScreen} {
+          margin-bottom: 30px;
+        }
       }
     }
   }

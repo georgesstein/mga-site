@@ -83,14 +83,11 @@ export default {
       requestAnimationFrame(() => {
         this.initDirection();
         this.el = this.$refs.player;
-        // const speedCoeff = this.down ? -this.speed : this.speed;
-        // if (
-        //   this.scrollPosition > this.distanceToElementTop - 100 &&
-        //   this.scrollPosition < this.distanceToElementTop + 100
-        // ) {
-        console.log("HIP");
+
+        if (this.el === null) return;
 
         window.addEventListener("scroll", () => {
+          if (this.el === null) return;
           this.el.style.transform = `translate${this.axes}(${
             window.pageYOffset * this.speedCoeff
           }px)`;
@@ -118,6 +115,7 @@ export default {
     },
   },
   mounted() {
+    if (this.$refs.about === null) return;
     this.distanceToElementTop = this.$refs.about.offsetTop;
 
     requestAnimationFrame(() => {
@@ -228,10 +226,16 @@ Whether you're an advertiser, publisher, or developer we are happy to consider c
       margin-bottom: -450px;
     }
 
+    @media #{$laptopsLarge} {
+      margin-top: 700px;
+      margin-bottom: -550px;
+    }
+
     @media #{$largeScreen} {
       height: 40vw;
       width: 80%;
       margin-top: 850px;
+      margin-bottom: -750px;
     }
 
     .player {

@@ -16,8 +16,8 @@ body {
 
 // media queries
 $phones: "screen and (max-width: 599px)";
-$phonesLarge: "only screen and (min-width: 600px)";
-$tabletsLandscape: "only screen and (min-width: 768px)";
-$laptops: "only screen and (min-width: 992px)";
-$laptopsLarge: "only screen and (min-width: 1200px)";
+$phonesLarge: "only screen and (min-width: 600px) and (max-width: 767px)";
+$tabletsLandscape: "only screen and (min-width: 768px) and (max-width: 991px)";
+$laptops: "only screen and (min-width: 992px) and (max-width: 1199px)";
+$laptopsLarge: "only screen and (min-width: 1200px) and (max-width: 1919px)";
 $largeScreen: "only screen and (min-width: 1920px)";

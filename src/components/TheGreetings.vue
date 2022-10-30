@@ -1,12 +1,11 @@
 <script>
-export default {
-
-};
+export default {};
 </script>
 
 <template>
   <div class="greetings-container">
-    <h1>RISE YOUR BUSINESS</h1>
+    <div style="width: max-content"><h1>RISE YOUR</h1></div>
+    <h1>BUSINESS</h1>
     <p>
       DISCLOSE UNPRECEDENTED GROWTH WITH SOCIAL, PPC, NATIVE, UNIQUE STRATEGY
       CAMPAIGNS AND GET EXPLICIT EFFECT. PARTNERS ALL AROUND THE WORLD HAVE
@@ -18,7 +17,8 @@ export default {
 
 <style lang="scss" scoped>
 .greetings-container {
-  width: 100%;
+  /* width: 65vw; */
+  width: min-content;
   height: 100%;
   padding-left: 10vw;
   z-index: 2;
@@ -32,7 +32,6 @@ export default {
 
   h1 {
     @include greetings-title;
-    width: 500px;
     margin-bottom: 10px;
     background: radial-gradient(55% 135% at 38% 30%, #ffffff 0%, #b8b8b8 100%);
     background-clip: text;
@@ -40,19 +39,16 @@ export default {
     -webkit-text-fill-color: transparent;
 
     @media #{$phones} {
-      width: 100%;
       font-size: $phoneTitleSize;
       line-height: $phoneTitleSize;
     }
 
     @media #{$laptopsLarge} {
-      width: 60%;
-      font-size: 96px;
-      line-height: 96px;
+      font-size: 86px;
+      line-height: 86px;
     }
 
     @media #{$largeScreen} {
-      width: 50%;
       font-size: 114px;
       line-height: 114px;
     }
@@ -60,18 +56,13 @@ export default {
 
   p {
     @include small-bold;
-    width: 400px;
+    width: 100%;
     color: $second;
     margin-bottom: 40px;
     text-transform: lowercase;
 
-    @media #{$phones} {
-      width: 100%;
-    }
-
     @media #{$largeScreen} {
       @include medium-bold;
-      width: 40%;
     }
   }
 }

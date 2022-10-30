@@ -123,8 +123,12 @@ export default {
         <router-link to="/privacy-policy" href="#home" v-smooth-scroll>
           Privacy Policy
         </router-link>
-        <a class="links-item">Terms</a>
-        <a class="links-item">Jobs</a>
+        <router-link to="/terms" href="#home" v-smooth-scroll>
+          Terms of Use
+        </router-link>
+        <router-link to="/jobs" href="#home" v-smooth-scroll>
+          Jobs
+        </router-link>
       </nav>
     </div>
   </div>
