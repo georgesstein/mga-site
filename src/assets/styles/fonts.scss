@@ -3,16 +3,14 @@ $phoneSize: 10vw;
 
 @font-face {
   font-family: "Inter";
-  src: local("Roboto"),
-    url('@/assets/styles/fonts/Inter-Regular.ttf') format("truetype");
+  src: url('@/assets/styles/fonts/Inter-Regular.ttf') format("truetype");
   font-style: normal;
   font-weight: 300;
 }
 
 @font-face {
   font-family: "Inter";
-  src: local("Roboto"),
-    url('@/assets/styles/fonts/Inter-Bold.ttf') format("truetype");
+  src: url('@/assets/styles/fonts/Inter-Bold.ttf') format("truetype");
   font-style: normal;
   font-weight: 700;
 }
