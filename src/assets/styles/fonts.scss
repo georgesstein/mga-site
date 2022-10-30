@@ -2,14 +2,14 @@ $phoneTitleSize: 14vw;
 $phoneSize: 10vw;
 
 @font-face {
-  font-family: "Inter", Roboto, Arial, Helvetica;
+  font-family: "Inter";
   src: url('@/assets/styles/fonts/Inter-Regular.ttf') format("truetype");
   font-style: normal;
   font-weight: 300;
 }
 
 @font-face {
-  font-family: "Inter", Roboto, Arial, Helvetica;
+  font-family: "Inter";
   src: url('@/assets/styles/fonts/Inter-Bold.ttf') format("truetype");
   font-style: normal;
   font-weight: 700;
