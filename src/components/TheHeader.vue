@@ -12,6 +12,11 @@ export default {
     };
   },
 
+  components: {
+    BaseLogo,
+    TheNavigation,
+  },
+
   methods: {
     scrollToMyEl(id) {
       setTimeout(() => {
@@ -49,9 +54,17 @@ export default {
     },
   },
 
-  components: {
-    BaseLogo,
-    TheNavigation,
+  computed: {
+    header_style() {
+      if (this.scrollPosition > 50) {
+        return "backdrop-filter: blur(10px); background-color: #0D0D0D";
+      }
+    },
+    navigation_style() {
+      if (this.scrollPosition > 50) {
+        return "backdrop-filter: blur(5px); background-color: rgba(58, 58, 60, 0.9)";
+      }
+    },
   },
 
   mounted() {
@@ -68,7 +81,7 @@ export default {
 </script>
 
 <template>
-  <div class="header" :class="{ 'header-scroll': scrollPosition > 50 }">
+  <div class="header" :style="header_style">
     <a href="#home" v-smooth-scroll>
       <BaseLogo />
     </a>
@@ -107,8 +120,12 @@ export default {
     </button>
 
     <!-- drop down menu --->
-    <div v-if="isDropDownMenuOpen" class="backdrop" @click="closeDropDownMenu">
-      <nav class="navigation" @click="closeDropDownMenu">
+    <!-- <div v-if="isDropDownMenuOpen" class="backdrop" @click="closeDropDownMenu">
+      <nav
+        class="navigation"
+        :style="navigation_style"
+        @click="closeDropDownMenu"
+      >
         <router-link href="#home" to="/" v-smooth-scroll>Home</router-link>
         <router-link to="/" @click="scrollToMyEl('advertisers')" v-smooth-scroll
           >Advertisers</router-link
@@ -130,7 +147,33 @@ export default {
           Jobs
         </router-link>
       </nav>
-    </div>
+    </div> -->
+  </div>
+  <div v-if="isDropDownMenuOpen" class="backdrop" @click="closeDropDownMenu">
+    <nav
+      class="navigation"
+      :style="navigation_style"
+      @click="closeDropDownMenu"
+    >
+      <router-link href="#home" to="/" v-smooth-scroll>Home</router-link>
+      <router-link to="/" @click="scrollToMyEl('advertisers')" v-smooth-scroll
+        >Advertisers</router-link
+      >
+      <router-link to="/" @click="scrollToMyEl('publishers')" v-smooth-scroll
+        >Publishers</router-link
+      >
+      <router-link to="/" @click="scrollToMyEl('about')" v-smooth-scroll
+        >About Us</router-link
+      >
+      <a href="#contact" v-smooth-scroll>Contact</a>
+      <router-link to="/privacy-policy" href="#home" v-smooth-scroll>
+        Privacy Policy
+      </router-link>
+      <router-link to="/terms" href="#home" v-smooth-scroll>
+        Terms of Use
+      </router-link>
+      <router-link to="/jobs" href="#home" v-smooth-scroll> Jobs </router-link>
+    </nav>
   </div>
 </template>
 
@@ -145,38 +188,38 @@ export default {
   top: 0;
   left: 0;
   padding: 0px 10vw;
-  z-index: 30;
+  z-index: 101;
   transition: background-color 0.2s, height 0.2s;
+}
 
-  & .hamburger {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    border: none;
-    z-index: 1;
+.hamburger {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
 
-    & svg {
-      cursor: pointer;
-      transition: fill 0.2s;
+  & svg {
+    cursor: pointer;
+    transition: fill 0.2s;
 
-      &:hover svg,
-      &:hover {
-        fill: white;
-      }
+    &:hover svg,
+    &:hover {
+      fill: white;
     }
   }
+}
 
-  & .backdrop {
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: $base;
-  }
+.backdrop {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: $base;
+  z-index: 100;
 
   & .navigation {
     @include small-bold;
@@ -202,10 +245,5 @@ export default {
       }
     }
   }
-}
-
-.header-scroll {
-  backdrop-filter: blur(10px);
-  background-color: $footerBackground;
 }
 </style>
