@@ -1,5 +1,4 @@
 <script>
-// import ScrollParallax from "vue3-parallax/src/components/ScrollParallax.vue";
 import HeadingBlock from "@/components/HeadingBlock.vue";
 
 export default {
@@ -23,7 +22,6 @@ export default {
 
   components: {
     HeadingBlock,
-    // ScrollParallax,
   },
 
   props: {
@@ -42,16 +40,6 @@ export default {
       default: true,
       required: false,
     },
-    right: {
-      type: Boolean,
-      default: true,
-      required: false,
-    },
-    left: {
-      type: Boolean,
-      default: false,
-      requiredequired: false,
-    },
     direction: {
       type: String,
       default: "y",
@@ -65,15 +53,16 @@ export default {
       speedCoeff: null,
       distanceToElementTop: null,
       scrollPosition: null,
+      isVideoPlaying: false,
     };
   },
   methods: {
-    defineScrollPosition() {
+    defineParallaxStarts() {
       this.scrollPosition = window.pageYOffset;
 
       if (
-        this.scrollPosition > this.distanceToElementTop - 100 &&
-        this.scrollPosition < this.distanceToElementTop + 100
+        this.scrollPosition >
+        this.distanceToElementTop - window.innerHeight
       ) {
         this.loadParallax();
       }
@@ -87,24 +76,15 @@ export default {
         if (this.el === null) return;
 
         window.addEventListener("scroll", () => {
-          if (this.el === null) return;
           this.el.style.transform = `translate${this.axes}(${
             window.pageYOffset * this.speedCoeff
           }px)`;
         });
-        // }
       });
     },
 
     initDirection() {
-      if (this.direction === "x") {
-        this.axes = "X";
-        if (this.left) {
-          this.speedCoeff = -this.speed;
-        } else {
-          this.speedCoeff = this.speed;
-        }
-      } else if (this.direction === "y") {
+      if (this.direction === "y") {
         this.axes = "Y";
         if (this.down) {
           this.speedCoeff = this.speed;
@@ -113,14 +93,34 @@ export default {
         }
       }
     },
+
+    // play() {
+    //   this.isVideoPlaying = true;
+
+    //   setTimeout(() => {
+    //     if (this.isVideoPlaying) {
+    //       this.$refs.videoPlayer.play();
+    //     }
+    //   }, 300);
+    // },
+    // pause() {
+    //   this.$refs.videoPlayer.pause();
+    // },
+    // stop() {
+    //   const { videoPlayer } = this.$refs;
+    //   videoPlayer.pause();
+    //   videoPlayer.currentTime = 0;
+    // },
+    // setSpeed(speed) {
+    //   this.$refs.videoPlayer.playbackRate = speed;
+    // },
   },
   mounted() {
     if (this.$refs.about === null) return;
     this.distanceToElementTop = this.$refs.about.offsetTop;
 
     requestAnimationFrame(() => {
-      window.addEventListener("scroll", this.defineScrollPosition);
-      // this.loadParallax();
+      window.addEventListener("scroll", this.defineParallaxStarts);
     });
   },
 };
@@ -134,7 +134,6 @@ export default {
       description="Founded in 2017, MGA team was formed by group of affiliates with decade of online marketing experience. We help numerous advertisers to enlarge their sales and gain income. 
 Whether you're an advertiser, publisher, or developer we are happy to consider cooperation on mutually beneficial conditions and assist in achieving business goals."
     />
-    <!-- <scroll-parallax -->
     <div
       ref="player"
       direction="y"
@@ -143,13 +142,24 @@ Whether you're an advertiser, publisher, or developer we are happy to consider c
       class="player-outer"
     >
       <div class="player">
-        <div class="controls">
-          <img class="play" src="@/assets/about/btn.svg" />
+        <div v-if="!isVideoPlaying" class="controls">
+          <img @click="play" class="play" src="@/assets/about/btn.svg" />
           <img class="caption" src="@/assets/about/watch-now.svg" />
         </div>
+        <!-- <video v-else class="player" ref="videoPlayer">
+          <source src="https://mga.team/theme/mga/assets/img/video.mp4" />
+        </video>
+        <div>
+          <button @click="play">play</button>
+          <button @click="pause">pause</button>
+          <button @click="stop">stop</button>
+          <button @click="setSpeed(0.5)">0.5x</button>
+          <button @click="setSpeed(1)">1x</button>
+          <button @click="setSpeed(1.5)">1.5x</button>
+          <button @click="setSpeed(2)">2x</button>
+        </div> -->
       </div>
     </div>
-    <!-- </scroll-parallax> -->
 
     <!-- video player example --->
     <!-- <video width="320" height="240" ref="videoPlayer">
