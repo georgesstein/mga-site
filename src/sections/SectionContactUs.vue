@@ -67,6 +67,14 @@ export default {
     padding: 40px 5vw;
   }
 
+  @media #{$laptopsLarge} {
+    padding: 40px 5vw 100px 5vw;
+  }
+
+  @media #{$largeScreen} {
+    padding: 40px 5vw 150px 5vw;
+  }
+
   & .wrapper {
     width: 540px;
     height: 100%;
