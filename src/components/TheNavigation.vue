@@ -37,27 +37,42 @@ export default {
 <template>
   <div class="navigation-container">
     <nav class="navigation">
-      <router-link href="#home" to="/" v-smooth-scroll>Home</router-link>
-      <router-link to="/" @click="scrollToEl('advertisers')" v-smooth-scroll
+      <router-link href="#home" to="/" v-smooth-scroll class="navigation-item"
+        >Home</router-link
+      >
+      <router-link
+        to="/"
+        @click="scrollToEl('advertisers')"
+        v-smooth-scroll
+        class="navigation-item"
         >Advertisers</router-link
       >
-      <router-link to="/" @click="scrollToEl('publishers')" v-smooth-scroll
+      <router-link
+        to="/"
+        @click="scrollToEl('publishers')"
+        v-smooth-scroll
+        class="navigation-item"
         >Publishers</router-link
       >
-      <router-link to="/" @click="scrollToEl('about')" v-smooth-scroll
+      <router-link
+        to="/"
+        @click="scrollToEl('about')"
+        v-smooth-scroll
+        class="navigation-item"
         >About Us</router-link
       >
-      <a href="#contact" v-smooth-scroll>Contact</a>
+      <a href="#contact" v-smooth-scroll class="navigation-item">Contact</a>
 
       <div
         class="links-container"
         @mouseover="isOpen = true"
         @mouseleave="isOpen = false"
       >
-        <a href="#links" v-smooth-scroll>Links</a>
+        <a href="#links" v-smooth-scroll class="navigation-item">Links</a>
 
         <div class="links" v-if="isOpen">
           <router-link
+            tag="a"
             to="/privacy-policy"
             href="#home"
             v-smooth-scroll
@@ -106,7 +121,7 @@ export default {
       @include medium-bold;
     }
 
-    a {
+    &-item {
       cursor: pointer;
       height: 100px;
       padding: 0px 20px;
@@ -124,7 +139,9 @@ export default {
       flex-direction: column;
 
       & .links {
-        align-self: flex-end;
+        display: flex;
+        flex-direction: column;
+        row-gap: 1px;
         top: 100px;
         right: 11vw;
         position: absolute;
@@ -134,17 +151,10 @@ export default {
         transition: 0.3s;
 
         &-item {
-          height: 50px;
-          padding: 0px;
-          padding-right: 15px;
+          width: 100%;
+          padding: 13px 35px 13px 17px;
           cursor: pointer;
           border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-
-          @media #{$largeScreen} {
-            height: 70px;
-            padding-right: 25px;
-            padding-left: 10px;
-          }
 
           & svg {
             fill: $base;

@@ -120,34 +120,6 @@ export default {
     </button>
 
     <!-- drop down menu --->
-    <!-- <div v-if="isDropDownMenuOpen" class="backdrop" @click="closeDropDownMenu">
-      <nav
-        class="navigation"
-        :style="navigation_style"
-        @click="closeDropDownMenu"
-      >
-        <router-link href="#home" to="/" v-smooth-scroll>Home</router-link>
-        <router-link to="/" @click="scrollToMyEl('advertisers')" v-smooth-scroll
-          >Advertisers</router-link
-        >
-        <router-link to="/" @click="scrollToMyEl('publishers')" v-smooth-scroll
-          >Publishers</router-link
-        >
-        <router-link to="/" @click="scrollToMyEl('about')" v-smooth-scroll
-          >About Us</router-link
-        >
-        <a href="#contact" v-smooth-scroll>Contact</a>
-        <router-link to="/privacy-policy" href="#home" v-smooth-scroll>
-          Privacy Policy
-        </router-link>
-        <router-link to="/terms" href="#home" v-smooth-scroll>
-          Terms of Use
-        </router-link>
-        <router-link to="/jobs" href="#home" v-smooth-scroll>
-          Jobs
-        </router-link>
-      </nav>
-    </div> -->
   </div>
   <div v-if="isDropDownMenuOpen" class="backdrop" @click="closeDropDownMenu">
     <nav
@@ -166,13 +138,13 @@ export default {
         >About Us</router-link
       >
       <a href="#contact" v-smooth-scroll>Contact</a>
-      <router-link to="/privacy-policy" href="#home" v-smooth-scroll>
-        Privacy Policy
-      </router-link>
-      <router-link to="/terms" href="#home" v-smooth-scroll>
-        Terms of Use
-      </router-link>
-      <router-link to="/jobs" href="#home" v-smooth-scroll> Jobs </router-link>
+      <router-link to="/privacy-policy" href="#home" v-smooth-scroll
+        >Privacy Policy</router-link
+      >
+      <router-link to="/terms" href="#home" v-smooth-scroll
+        >Terms of Use</router-link
+      >
+      <router-link to="/jobs" href="#home" v-smooth-scroll>Jobs</router-link>
     </nav>
   </div>
 </template>
