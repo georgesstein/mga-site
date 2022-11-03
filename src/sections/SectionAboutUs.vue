@@ -2,23 +2,16 @@
 import HeadingBlock from "@/components/HeadingBlock.vue";
 
 export default {
-  // for player
-  // methods: {
-  //   play() {
-  //     this.$refs.videoPlayer.play();
-  //   },
-  //   pause() {
-  //     this.$refs.videoPlayer.pause();
-  //   },
-  //   stop() {
-  //     const { videoPlayer } = this.$refs;
-  //     videoPlayer.pause();
-  //     videoPlayer.currentTime = 0;
-  //   },
-  //   setSpeed(speed) {
-  //     this.$refs.videoPlayer.playbackRate = speed;
-  //   },
-  // },
+  data() {
+    return {
+      el: null,
+      axes: null,
+      speedCoeff: null,
+      distanceToElementTop: null,
+      scrollPosition: null,
+      isVideoPlaying: false,
+    };
+  },
 
   components: {
     HeadingBlock,
@@ -46,16 +39,7 @@ export default {
       required: false,
     },
   },
-  data() {
-    return {
-      el: null,
-      axes: null,
-      speedCoeff: null,
-      distanceToElementTop: null,
-      scrollPosition: null,
-      isVideoPlaying: false,
-    };
-  },
+
   methods: {
     defineParallaxStarts() {
       this.scrollPosition = window.pageYOffset;
@@ -94,26 +78,23 @@ export default {
       }
     },
 
-    // play() {
-    //   this.isVideoPlaying = true;
+    play() {
+      this.isVideoPlaying = true;
 
-    //   setTimeout(() => {
-    //     if (this.isVideoPlaying) {
-    //       this.$refs.videoPlayer.play();
-    //     }
-    //   }, 300);
-    // },
-    // pause() {
-    //   this.$refs.videoPlayer.pause();
-    // },
-    // stop() {
-    //   const { videoPlayer } = this.$refs;
-    //   videoPlayer.pause();
-    //   videoPlayer.currentTime = 0;
-    // },
-    // setSpeed(speed) {
-    //   this.$refs.videoPlayer.playbackRate = speed;
-    // },
+      setTimeout(() => {
+        if (this.isVideoPlaying) {
+          this.$refs.videoPlayer.play();
+        }
+      }, 100);
+    },
+    pause() {
+      this.$refs.videoPlayer.pause();
+    },
+    stop() {
+      const { videoPlayer } = this.$refs;
+      videoPlayer.pause();
+      videoPlayer.currentTime = 0;
+    },
   },
   mounted() {
     if (this.$refs.about === null) return;
@@ -146,38 +127,18 @@ Whether you're an advertiser, publisher, or developer we are happy to consider c
           <img @click="play" class="play" src="@/assets/about/btn.svg" />
           <img class="caption" src="@/assets/about/watch-now.svg" />
         </div>
-        <!-- <video v-else class="player" ref="videoPlayer">
-          <source src="https://mga.team/theme/mga/assets/img/video.mp4" />
+        <video
+          v-else
+          class="player"
+          ref="videoPlayer"
+          width="620"
+          controls
+          src="@/assets/about/video.mp4"
+        >
+          Video cannot be played
         </video>
-        <div>
-          <button @click="play">play</button>
-          <button @click="pause">pause</button>
-          <button @click="stop">stop</button>
-          <button @click="setSpeed(0.5)">0.5x</button>
-          <button @click="setSpeed(1)">1x</button>
-          <button @click="setSpeed(1.5)">1.5x</button>
-          <button @click="setSpeed(2)">2x</button>
-        </div> -->
       </div>
     </div>
-
-    <!-- video player example --->
-    <!-- <video width="320" height="240" ref="videoPlayer">
-      <source
-        src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
-        type="video/mp4"
-      />
-      Your browser does not support the video tag.
-    </video>
-    <div>
-      <button @click="play">play</button>
-      <button @click="pause">pause</button>
-      <button @click="stop">stop</button>
-      <button @click="setSpeed(0.5)">0.5x</button>
-      <button @click="setSpeed(1)">1x</button>
-      <button @click="setSpeed(1.5)">1.5x</button>
-      <button @click="setSpeed(2)">2x</button>
-    </div> -->
   </div>
 </template>
 
