@@ -2,6 +2,8 @@
 import HeadingBlock from "@/components/HeadingBlock.vue";
 import AdvertisersTileItem from "@/components/AdvertisersTileItem.vue";
 
+import TheCookie from '@/components/TheCookie.vue'
+
 import { ADVERTISERS } from "@/assets/content.js";
 
 export default {
@@ -14,6 +16,7 @@ export default {
   components: {
     HeadingBlock,
     AdvertisersTileItem,
+    TheCookie
   },
 };
 </script>
@@ -21,6 +24,8 @@ export default {
 <template>
   <div id="advertisers" class="advertisers">
     <HeadingBlock beforeHeading="for" title="ADVERTISERS" />
+
+    <TheCookie />
 
     <div class="tiles">
       <AdvertisersTileItem

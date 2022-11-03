@@ -127,21 +127,6 @@ export default {
       points.rotation.set(tiltX, tiltY, 0);
     });
   },
-
-  // methods: {
-  //   updateColors() {
-  //     const colorAttribute = this.$refs.points.geometry.attributes.color;
-  //     const ip = randInt(0, 99);
-  //     const palette = niceColors[ip];
-  //     console.log(ip);
-  //     const color = new Color();
-  //     for (let i = 0; i < this.POINTS_COUNT; i++) {
-  //       color.set(palette[randInt(0, palette.length)]);
-  //       color.toArray(colorAttribute.array, i * 3);
-  //     }
-  //     colorAttribute.needsUpdate = true;
-  //   },
-  // },
 };
 </script>
 

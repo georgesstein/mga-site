@@ -6,7 +6,7 @@ export default {
     return {
       el: null,
       axes: null,
-      speedCoeff: null,
+      speedCoef: null,
       distanceToElementTop: null,
       scrollPosition: null,
       isVideoPlaying: false,
@@ -22,16 +22,6 @@ export default {
       type: Number,
       required: false,
       default: 0.15,
-    },
-    down: {
-      type: Boolean,
-      default: false,
-      required: false,
-    },
-    up: {
-      type: Boolean,
-      default: true,
-      required: false,
     },
     direction: {
       type: String,
@@ -61,7 +51,7 @@ export default {
 
         window.addEventListener("scroll", () => {
           this.el.style.transform = `translate${this.axes}(${
-            window.pageYOffset * this.speedCoeff
+            window.pageYOffset * this.speedCoef
           }px)`;
         });
       });
@@ -71,9 +61,9 @@ export default {
       if (this.direction === "y") {
         this.axes = "Y";
         if (this.down) {
-          this.speedCoeff = this.speed;
+          this.speedCoef = this.speed;
         } else {
-          this.speedCoeff = -this.speed;
+          this.speedCoef = -this.speed;
         }
       }
     },
@@ -86,14 +76,6 @@ export default {
           this.$refs.videoPlayer.play();
         }
       }, 100);
-    },
-    pause() {
-      this.$refs.videoPlayer.pause();
-    },
-    stop() {
-      const { videoPlayer } = this.$refs;
-      videoPlayer.pause();
-      videoPlayer.currentTime = 0;
     },
   },
   mounted() {
@@ -127,14 +109,17 @@ Whether you're an advertiser, publisher, or developer we are happy to consider c
           <img @click="play" class="play" src="@/assets/about/btn.svg" />
           <img class="caption" src="@/assets/about/watch-now.svg" />
         </div>
+
         <video
           v-else
           class="player"
           ref="videoPlayer"
-          width="620"
+          width="700"
+          height="300"
           controls
-          src="@/assets/about/video.mp4"
         >
+          >
+          <source src="@/assets/about/video.mp4" type="video/mp4" />
           Video cannot be played
         </video>
       </div>
@@ -165,11 +150,14 @@ Whether you're an advertiser, publisher, or developer we are happy to consider c
     padding: 40px 5vw;
   }
 
+  @media #{$largeScreen} {
+    padding: 40px 15vw;
+  }
+
   & .player-outer {
-    height: 45vw;
     width: 100%;
+    aspect-ratio: 16 / 9;
     border-radius: 24px;
-    background-size: contain;
     background-image: url("@/assets/about/player-outer.png");
     background-position: center;
     background-size: cover;
@@ -203,8 +191,6 @@ Whether you're an advertiser, publisher, or developer we are happy to consider c
     }
 
     @media #{$largeScreen} {
-      height: 40vw;
-      width: 80%;
       margin-top: 850px;
       margin-bottom: -750px;
     }
@@ -222,30 +208,34 @@ Whether you're an advertiser, publisher, or developer we are happy to consider c
       background-size: cover;
       background-repeat: no-repeat;
 
+      & video {
+        background: none;
+      }
+
       & .controls {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-      }
 
-      & .play {
-        height: 80px;
-        transition: all 0.2s;
+        & .play {
+          height: 80px;
+          transition: all 0.2s;
 
-        @media #{$phones} {
-          height: 10vw;
+          @media #{$phones} {
+            height: 10vw;
+          }
+
+          &:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+          }
         }
 
-        &:hover {
-          cursor: pointer;
-          transform: scale(1.1);
-        }
-      }
-
-      & .caption {
-        @media #{$phones} {
-          height: 5vw;
+        & .caption {
+          @media #{$phones} {
+            height: 5vw;
+          }
         }
       }
     }

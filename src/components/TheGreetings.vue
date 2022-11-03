@@ -1,7 +1,3 @@
-<script>
-export default {};
-</script>
-
 <template>
   <div class="greetings-container">
     <div style="width: max-content"><h1>RISE YOUR</h1></div>
@@ -17,7 +13,6 @@ export default {};
 
 <style lang="scss" scoped>
 .greetings-container {
-  /* width: 65vw; */
   width: min-content;
   height: 100%;
   padding-left: 10vw;
