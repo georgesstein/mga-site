@@ -16,12 +16,6 @@ export default {
     HeadingBlock,
     ContactButton,
   },
-
-  methods: {
-    handleSubmit() {
-      console.log("The form is submitted");
-    },
-  },
 };
 </script>
 
@@ -30,16 +24,34 @@ export default {
     <HeadingBlock title="CONTACT US" />
 
     <div class="wrapper">
-      <form @submit.prevent="handleSubmit" class="form">
-        <input type="text" required v-model="name" placeholder="Name *" />
-        <input type="email" required v-model="email" placeholder="Email *" />
+      <form class="form" action="mail.php" method="post">
+        <input
+          type="text"
+          name="name"
+          required
+          v-model="name"
+          placeholder="Name *"
+        />
+        <input
+          type="email"
+          name="email"
+          required
+          v-model="email"
+          placeholder="Email *"
+        />
         <input
           type="tel"
+          name="phone"
           required
           v-model="phoneNumber"
           placeholder="Phone *"
         />
-        <textarea type="text" v-model="messageText" placeholder="Message" />
+        <textarea
+          type="text"
+          name="message"
+          v-model="messageText"
+          placeholder="Message"
+        />
 
         <ContactButton tabindex="0" title="Send">
           <img src="@/assets/icons/button-mail.svg" />
