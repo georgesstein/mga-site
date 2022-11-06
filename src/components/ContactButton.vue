@@ -24,17 +24,19 @@ export default {
 </script>
 
 <template>
-  <div href="#" class="wrapper" :style="button_style">
+  <button href="#" class="wrapper" :style="button_style">
     <a class="btn btn-white btn-animate">
       <slot></slot>
       {{ title }}
     </a>
-  </div>
+  </button>
 </template>
 
 <style lang="scss" scoped>
 .wrapper {
   width: 360px;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
 
   & a {
