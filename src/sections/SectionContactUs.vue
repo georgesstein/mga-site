@@ -24,7 +24,12 @@ export default {
     <HeadingBlock title="CONTACT US" />
 
     <div class="wrapper">
-      <form class="form" action="mail.php" method="post">
+      <form
+        class="form"
+        action="mail.php"
+        method="post"
+        enctype="multipart/form-data"
+      >
         <input
           type="text"
           name="name"
